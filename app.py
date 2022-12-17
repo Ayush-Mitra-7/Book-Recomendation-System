@@ -1,7 +1,7 @@
 from flask import Flask,render_template,request
 import pickle
 import numpy as np
-
+import pandas as pd
 popular_books=pickle.load(open('models/popular.pkl','rb'))
 pt = pickle.load(open('models/pt.pkl','rb'))
 books = pickle.load(open('models/books.pkl','rb'))
@@ -41,8 +41,7 @@ def recommend():
         data.append(item)
 
     print(data)
-
     return render_template('recommend.html',data=data)
-
+print(pd.__version__)
 if __name__=='__main__':
     app. run(debug=True)
